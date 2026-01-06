@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYRA — Transform Your Voice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'v-primary': '#8B5CF6',
+                        'v-secondary': '#A78BFA',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Theme: Violet (default) */
+        body.theme-violet {
+            background: linear-gradient(135deg, #0A0A0F 0%, #12121A 50%, #0A0A0F 100%);
+            color: #F8FAFC;
+        }
+        body.theme-violet .glass-card {
+            background: rgba(18, 18, 26, 0.8);
+            border: 1px solid rgba(139, 92, 246, 0.15);
+            backdrop-filter: blur(20px);
+        }
+        body.theme-violet .accent-gradient {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+        }
+        body.theme-violet .accent-text {
+            color: #A78BFA;
+        }
+        
+        /* Theme: Mono */
+        body.theme-mono {
+            background: #000000;
+            color: #FFFFFF;
+        }
+        body.theme-mono .glass-card {
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+        }
+        body.theme-mono .accent-gradient {
+            background: linear-gradient(135deg, #FFFFFF 0%, #E4E4E7 100%);
+            color: #000000;
+        }
+        body.theme-mono .accent-text {
+            color: #FFFFFF;
+        }
+        
+        /* Theme: Gold (Premium) */
+        body.theme-gold {
+            background: #000000;
+            color: #FFFFFF;
+        }
+        body.theme-gold .glass-card {
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid rgba(234, 179, 8, 0.15);
+            backdrop-filter: blur(20px);
+        }
+        body.theme-gold .accent-gradient {
+            background: linear-gradient(135deg, #EAB308 0%, #FACC15 100%);
+            color: #000000;
+        }
+        body.theme-gold .accent-text {
+            color: #FACC15;
+        }
+        body.theme-gold .accent-glow {
+            box-shadow: 0 0 30px rgba(234, 179, 8, 0.3);
+        }
+        
+        /* Smooth animations */
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0; 
+                transform: translateY(40px) scale(0.95); 
+            }
+            100% { 
+                opacity: 1; 
+                transform: translateY(0) scale(1); 
+            }
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Stagger delays */
+        .animate-fade-in-up:nth-child(1) { animation-delay: 0.1s; }
+        .animate-fade-in-up:nth-child(2) { animation-delay: 0.15s; }
+        .animate-fade-in-up:nth-child(3) { animation-delay: 0.2s; }
+        .animate-fade-in-up:nth-child(4) { animation-delay: 0.25s; }
+        
+        /* Hero text animation */
+        @keyframes fadeInScale {
+            from { 
+                opacity: 0; 
+                transform: scale(0.96); 
+            }
+            to { 
+                opacity: 1; 
+                transform: scale(1); 
+            }
+        }
+        .animate-hero {
+            opacity: 0;
+            animation: fadeInScale 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        
+        /* Icon glow on hover */
+        .group:hover .text-violet-400 { filter: drop-shadow(0 4px 12px rgba(139, 92, 246, 0.4)); }
+        .group:hover .text-blue-400 { filter: drop-shadow(0 4px 12px rgba(96, 165, 250, 0.4)); }
+        .group:hover .text-emerald-400 { filter: drop-shadow(0 4px 12px rgba(52, 211, 153, 0.4)); }
+        .group:hover .text-orange-400 { filter: drop-shadow(0 4px 12px rgba(251, 146, 60, 0.4)); }
+        .group:hover .text-yellow-400 { filter: drop-shadow(0 4px 12px rgba(250, 204, 21, 0.4)); }
+        
+        /* Gold theme specific colors */
+        body.theme-gold .text-violet-400,
+        body.theme-gold .text-blue-400,
+        body.theme-gold .text-emerald-400,
+        body.theme-gold .text-orange-400 {
+            color: #FACC15;
+        }
+        
+        /* Recording pulse */
+        @keyframes pulse-ring {
+            0% { transform: scale(0.8); opacity: 0.8; }
+            100% { transform: scale(2); opacity: 0; }
+        }
+        .recording-pulse {
+            animation: pulse-ring 1.5s ease-out infinite;
+        }
+    </style>
+</head>
+<body class="theme-gold">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+</body>
+</html>
